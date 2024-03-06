@@ -5,14 +5,15 @@ from tkinter import ttk
 
 def accion():
     enlace = enlaceinput.get()
+    destinoalmacenamiento = direccion.get()
     print("Sacando audio del enlace: " + enlace)
 
     yt=YouTube(enlace)
-    print(yt.title + "is downloading")
+    print(yt.title + " is downloading")
 
     audio = yt.streams.filter(only_audio=True).first() 
 
-    out_file = audio.download()
+    out_file = audio.download(output_path=destinoalmacenamiento)
 
     base, ext = os.path.splitext(out_file) 
     new_file = base + '.mp3'
@@ -31,18 +32,23 @@ foto = Label(root, image=imagen, bd=0)
 foto.grid(row=0, column=0)
 frm = ttk.Frame(root)
 frm.grid()
-ttk.Label(frm, text="App de descargas").grid(column=0, row=1)
+ttk.Label(frm, text="App de descargas").grid(column=0, row=0)
 
 
 instrucciones = Label(root, text="pegar un link de YT para descargar")
-instrucciones.grid (row=0,column=1)
-
+instrucciones.grid (row=2,column=2)
 
 enlaceinput = Entry(root)
-enlaceinput.grid(row=1,column=1)
+enlaceinput.grid(row=2,column=3)
 
-ttk.Button(frm, text="Descargar", command=accion).grid(column=1, row=3)
-ttk.Button(frm, text="Quit", command=root.destroy).grid(column=0, row=3)
+destino = Label(root, text="pegar el lugar de almacenamiento")
+destino.grid (row=3,column=2)
+
+direccion = Entry(root)
+direccion.grid(row=3,column=3)
+
+ttk.Button(frm, text="Descargar", command=accion).grid(column=1, row=4)
+ttk.Button(frm, text="Quit", command=root.destroy).grid(column=0, row=4)
 root.mainloop()
 
 
