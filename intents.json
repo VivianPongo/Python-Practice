@@ -1,0 +1,29 @@
+{
+    "intents":[
+        {
+            "tag": "saludo",
+            "patterns": ["hola", "que tal?", "como estas?", "saludos"],
+            "responses": ["Hola! ", "Buenos dias ", "Bienvenido"]
+
+        },
+        {
+            "tag": "nombre",
+            "patterns": ["cual es tu nombre", "como te llamas", "tienes un nombre?"],
+            "responses": ["Me llamo Maxwell! ", "Mi nombre es Maxwell ", "Hola, llamame Maxwell"]
+
+        },
+        {
+            "tag": "despedida",
+            "patterns": ["salir", "exit", "adios", "fin", "finalizar"],
+            "responses": ["Hasta luego!", "Byeee", "Hasta pronto", "Adios"]
+
+        },
+        {
+            "tag": "pregunta",
+            "patterns": ["Quien es tu artista favorito", "te gusta alguien", "admiras a una persona", "quien te gusta", "un artista"],
+            "responses": ["lana del rey! ", "taylor ", "Adele", "Selena Gomez"]
+
+        }
+
+    ]
+}
